@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.18-alpine
+        ports:
+        - containerPort: 80
+
+kubectl set image deployment/nginx-deployment nginx=nginx:1.19-alpine --record
+kubectl rollout history deployment/nginx-deployment
+kubectl rollout undo deployment/nginx-deployment
+kubectl rollout history deployment/nginx-deployment
+kubectl describe deployment nginx-deployment

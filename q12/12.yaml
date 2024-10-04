@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-server
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: api-server
+  template:
+    metadata:
+      labels:
+        app: api-server
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.18
+        resources:
+          requests:
+            cpu: "100m"  
+          limits:
+            cpu: "500m"  
+
+
+kubectl autoscale deployment api-server --cpu-percent=50 --min=2 --max=5 -n production 

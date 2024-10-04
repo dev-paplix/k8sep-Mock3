@@ -1,0 +1,14 @@
+--- sudo nano /etc/kubernetes/manifests/myservice.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myservice
+  labels:
+    app: myservice
+spec:
+  containers:
+  - name: myservice
+    image: nginx:latest
+    ports:
+    - containerPort: 80
