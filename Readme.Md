@@ -1,7 +1,7 @@
-Name:
+Name: Hasbullah Bin Sarijudin
 
 Q1:
-Upgrade your Kubeadm from the current version to the 1.31.1.* for all nodes
+Upgrade your Kubeadm from the current version to the 1.31.1.\* for all nodes
 
 Q2:
 Create a Persistent Volume with the given specification.
@@ -16,10 +16,8 @@ Create a new user use RABC in your Kubenetes cluster and give it a power to crea
 Q:5
 Create a deployment of nginx with the image of nginx of version 1.18-alpine. Now upgrade the version to 1.19-alpine and record it. Now roll back the deployment to the previous version.
 
-
 Q6:
 Create a pod of jenkins with the image jenkins in the namespace of web-frontend
-
 
 Q7:
 
@@ -28,12 +26,8 @@ Create a configuration file to create a pod of redis with redis image and 6 repl
 Q8:
 Used etcd to create a backup. Remove all or one of the previous deployments and restore the backup
 
-
-
 Q9:
 Create a manifest file to launch a myservice pod with an image of nginx on the worker node automatically. Any manifest files should be placed in /etc/kubernetes/manifests
-
-
 
 Q10:
 
@@ -44,11 +38,9 @@ MYSQL_DATABASE
 MYSQL_PASSWORD
 MYSQL_USER
 
-
 Q11:
 
-Create and phpmyadmin deployment and service use phpmyadmin:latest image which gets its "PMA_HOST" as an environmental variable from the service name from the previous question 
-
+Create and phpmyadmin deployment and service use phpmyadmin:latest image which gets its "PMA_HOST" as an environmental variable from the service name from the previous question
 
 Q12:
 Configure Horizontal Pod Autoscaling for a Deployment to automatically scale based on CPU usage.
@@ -60,7 +52,7 @@ Create a NetworkPolicy which denies all ingress traffic
 
 Q14:
 
-Create a deployment names  busybox:stable-glibc in the qq3 namespace. Perform a rolling update to the deployment by setting the image to busybox:stable-musl
+Create a deployment names busybox:stable-glibc in the qq3 namespace. Perform a rolling update to the deployment by setting the image to busybox:stable-musl
 
 Q15:
 
@@ -75,9 +67,6 @@ Is client certificate authentication enabled
 Q16:
 Create a deployment and a service name apache with the image of httpd with a namespace of apache. The deployment must be visible from outside of the cluster with a port 80.
 
-
 Q17:
 
 Create a storageclass with 10Gi of space, then create a persistent volume claims that claims 4Gi of the storage
-
-
