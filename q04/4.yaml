@@ -1,0 +1,26 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: khairul-manager
+rules:
+- apiGroups: ["apps"]
+  resources: ["pods"]
+  verbs: ["create", "get", "describe", "logs"]
+
+
+  //rolebinding
+
+  apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: khairul-manager-binding
+  namespace: default
+subjects:
+- kind: User
+  name: Khairul   # The name of the new user
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: pod-manager
+  apiGroup: rbac.authorization.k8s.io
