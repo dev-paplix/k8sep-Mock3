@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: httpd-svc
+  name: httpd-svc
+  namespace: apache
+spec:
+  ports:
+  - name: 80-80
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: apache
+  type: LoadBalancer
+status:
+  loadBalancer: {}
+
+
