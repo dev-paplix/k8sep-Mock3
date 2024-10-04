@@ -1,0 +1,10 @@
+# nginx-pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  serviceAccountName: pod-manager
+  containers:
+  - name: nginx
+    image: nginx
