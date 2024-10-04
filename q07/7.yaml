@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-deployment
+  labels:
+    app_env_stage: redis
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app_env_stage: redis
+  template:
+    metadata:
+      labels:
+        app_env_stage: redis
+    spec:
+      containers:
+      - name: redis
+        image: redis:latest
+        ports:
+        - containerPort: 80

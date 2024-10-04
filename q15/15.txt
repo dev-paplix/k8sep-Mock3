@@ -1,0 +1,5 @@
+Server private key location: /etc/kubernetes/pki/etcd/server.crt
+
+Server certificate expiration date: 
+
+Is client certificate authentication enabled: 
