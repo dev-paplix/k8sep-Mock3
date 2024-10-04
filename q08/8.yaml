@@ -1,0 +1,15 @@
+#export ETCDCTL_API=3
+
+#cd /etc/kubernetes/manifests/
+
+#etcdctl snapshot save --endpoints 127.0.0.1:2379 \
+#--cert=/etc/kubernetes/pki/etcd/server.crt \
+#--key=/etc/kubernetes/pki/etcd/server.key \
+#--cacert=/etc/kubernetes/pki/etcd/ca.crt \
+#/home/ubuntu/k8back.db
+
+#etcdctl snapshot restore  --data-dir /var/lib/etcd-4  /home/ubuntu/k8back.db
+
+#cd /var/lib/etcd
+#rm -r member
+# cp -r /var/lib/etcd-4/member /var/lib/etcd
