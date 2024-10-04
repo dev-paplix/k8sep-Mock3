@@ -1,0 +1,52 @@
+openssl genrsa -out aiman.key 2048
+
+openssl req -new -key aiman.key -out aiman.csr -subj "/CN=aiman/O=dev/O=example.org"
+
+openssl x509 -req -CA  /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -days 730 -in aiman.csr -out aiman.crt
+kubectl config set-credentials aiman --client-certificate=aiman.crt --client-key=aiman.key
+kubectl config set-context aiman-kubernetes --cluster=kubernetes --user=aiman --namespace=default
+kubectl config get-contexts
+kubectl config use-context
+kubectl api-resources -o wide | grep pod
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: aiman
+rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["create", "get", "logs", "list", "describe"]
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  namespace: default
+  name: aiman-rolebinding
+subjects:
+- kind: User
+  name: aiman
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: aiman
+  apiGroup: rbac.authorization.k8s.io
+
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx:latest
+    ports:
+    - containerPort: 80
