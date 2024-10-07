@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jenkins
+  namespace: web-frontend
+spec:
+  containers:
+    - name: jenkins
+      image: jenkins/jenkins:lts
+      ports:
+        - containerPort: 8080
